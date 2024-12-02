@@ -38,5 +38,5 @@ To install NoBi-torrent, follow these steps:
 To start using NoBi-torrent, run the following command:
 
 ```bash
-./your_bittorrent.sh download -o {path-to-output-file} sample.torrent
+./start_bittorrent.sh download -o {path-to-output-file} sample.torrent
 ```
