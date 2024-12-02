@@ -4,12 +4,16 @@ import decodeBencode from './bencode.js';
 import crypto from 'crypto';
 import fs from 'fs';
 
+//Reads a torrent file from the specified filename and decodes its Bencode content.
+
 function parseTorrentFile(filename) {
     const buffer = fs.readFileSync(filename);
     const bencodedString = buffer.toString('binary');
     const data = decodeBencode(bencodedString);
     return data;
 }
+
+//Calculates the SHA-1 hash of the "info" dictionary within the torrent file. This hash is a crucial identifier of the torrent.
 
 function calculateInfoHash(filename) {
     const buffer = fs.readFileSync(filename);
@@ -92,6 +96,8 @@ function calculateInfoHash(filename) {
   
     return infoHash;
 }
+
+//Extracts information about the torrent's pieces from the parsed torrent data.
 
 function extractPieceInfo(data) {
     const pieceLength = data['piece length'];
